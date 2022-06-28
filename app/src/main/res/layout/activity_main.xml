@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="myViewModel"
+            type="com.example.practicaltask.models.TransactionViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/colorGray"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/bg_section"
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textHeadLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_atm_amount" />
+
+                    <TextView
+                        android:id="@+id/txtAmount"
+                        style="@style/textDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@{String.valueOf(myViewModel.transactionMutableLiveData.totalAmount)}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_100" />
+
+                        <TextView
+                            android:id="@+id/txtNotes100"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.transactionMutableLiveData.totalNotes100)}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_200" />
+
+                        <TextView
+                            android:id="@+id/txtNotes200"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.transactionMutableLiveData.totalNotes200)}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_500" />
+
+                        <TextView
+                            android:id="@+id/txtNotes500"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.transactionMutableLiveData.totalNotes500)}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_2000" />
+
+                        <TextView
+                            android:id="@+id/txtNotes2000"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.transactionMutableLiveData.totalNotes2000)}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp">
+
+                <EditText
+                    android:id="@+id/edit_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@android:color/transparent"
+                    android:hint="@string/hint_amount"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:afterTextChanged="@{(edtitable)->myViewModel.afterUserNameChange(edtitable)}"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_button"
+                android:text="@string/text_withdraw"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:onClick="@{()->myViewModel.withdrawMoney()}">
+            </androidx.appcompat.widget.AppCompatButton>
+
+            <TextView
+                style="@style/textHeadLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/text_last_transactions"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/bg_section"
+                android:elevation="2dp"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/textHeadLine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_atm_amount" />
+
+                    <TextView
+                        android:id="@+id/txtLastAmount"
+                        style="@style/textDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@{String.valueOf(myViewModel.lastTransactionMutableLiveData.amount)}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_100" />
+
+                        <TextView
+                            android:id="@+id/txtLastNotes100"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.lastTransactionMutableLiveData.notes100)}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_200" />
+
+                        <TextView
+                            android:id="@+id/txtLastNotes200"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.lastTransactionMutableLiveData.notes200)}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_500" />
+
+                        <TextView
+                            android:id="@+id/txtLastNotes500"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.lastTransactionMutableLiveData.notes500)}" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/textHeadLine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/text_rs_2000" />
+
+                        <TextView
+                            android:id="@+id/txtLastNotes2000"
+                            style="@style/textDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="@{String.valueOf(myViewModel.lastTransactionMutableLiveData.notes2000)}" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/textHeadLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="5dp"
+                android:text="@string/text_your_transactions"
+                android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_section"
+            android:elevation="2dp"
+            android:orientation="horizontal"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTransactions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

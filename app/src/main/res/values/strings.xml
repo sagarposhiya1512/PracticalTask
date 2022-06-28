@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">PracticalTask</string>
+    <string name="text_atm_amount">ATM Amount</string>
+    <string name="text_rs_100">Rs.100</string>
+    <string name="text_rs_200">Rs.200</string>
+    <string name="text_rs_500">Rs.500</string>
+    <string name="text_rs_2000">Rs.2000</string>
+    <string name="hint_amount">Amount</string>
+    <string name="text_enter_amount">Enter your withdraw amount</string>
+    <string name="text_withdraw">Withdraw</string>
+    <string name="text_last_transactions">Last Transaction</string>
+    <string name="text_your_transactions">Your Transactions</string>
+</resources>
